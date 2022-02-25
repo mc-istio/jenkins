@@ -1,0 +1,43 @@
+replicaCount: 1
+clusterName: sh2-cluster
+image:
+  repository: kadirzade/sh2-jenkins
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+resources: 
+  limits:
+    cpu: 200m
+    memory: 1Gi
+  requests:
+    cpu: 500m
+    memory: 2Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+serviceAccount:
+    create: true
+    annotations: {}
+    name: ""
+    
+env: {}
+
+      
