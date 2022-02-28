@@ -1,9 +1,10 @@
 replicaCount: 1
-clusterName: sh2-cluster
+clusterName: ba-cluster
+
 image:
   repository: kadirzade/sh2-jenkins
   tag: latest
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
@@ -14,30 +15,36 @@ ingress:
 
 resources: 
   limits:
-    cpu: 200m
-    memory: 1Gi
+    cpu: 120m
+    memory: 300Mi
   requests:
-    cpu: 500m
-    memory: 2Gi
+    cpu: 100m
+    memory: 256Mi
 
-autoscaling:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 1
-  targetCPUUtilizationPercentage: 80
-  targetMemoryUtilizationPercentage: 80
+# autoscaling:
+#   enabled: true
+#   minReplicas: 1
+#   maxReplicas: 5
+#   targetCPUUtilizationPercentage: 80
+#   targetMemoryUtilizationPercentage: 80
 
-nodeSelector: {}
+# nodeSelector: {}
 
-tolerations: []
+# tolerations: []
 
-affinity: {}
+# affinity: {}
 
-serviceAccount:
-    create: true
-    annotations: {}
-    name: ""
-    
-env: {}
-
-      
+# probes:
+#   liveness:
+#     path: /hc/live
+#     initialDelaySeconds: 10
+#     periodSeconds: 30
+#     port: 80
+#   readiness:
+#     path: /hc/ready
+#     timeoutSeconds: 5
+#     initialDelaySeconds: 30
+#     periodSeconds: 10
+#     failureThreshold: 4
+#     successThreshold: 1
+#     port: 80
