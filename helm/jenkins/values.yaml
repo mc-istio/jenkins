@@ -20,6 +20,11 @@ resources:
     cpu: 100m
     memory: 256Mi
 
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""    
+
 # autoscaling:
 #   enabled: true
 #   minReplicas: 1
