@@ -1,5 +1,4 @@
 replicaCount: 1
-clusterName: ba-cluster
 
 image:
   repository: kadirzade/sh2-jenkins
