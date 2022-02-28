@@ -6,8 +6,8 @@ USER root
 # Skip initial setup
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
-# Setting the number of executors
-COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
+# # Setting the number of executors
+# COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 
 # Install default plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
